@@ -1,9 +1,15 @@
 package com.daniloewerton.clientproject.entities;
 
+import jakarta.persistence.*;
+
 import java.time.Instant;
 
+@Entity
+@Table(name = "tb_client")
 public class Client {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String cpf;
@@ -12,7 +18,7 @@ public class Client {
     private Integer children;
 
     public Client() {
-        
+
     }
 
     public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
