@@ -1,2 +1,10 @@
-package com.daniloewerton.clientproject.repositories;public class ClienteRepository {
+package com.daniloewerton.clientproject.repositories;
+
+import com.daniloewerton.clientproject.entities.Client;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ClientRepository extends JpaRepository<Client, Long> {
+
 }
