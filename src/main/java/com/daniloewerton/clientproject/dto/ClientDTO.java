@@ -1,15 +1,11 @@
-package com.daniloewerton.clientproject.entities;
+package com.daniloewerton.clientproject.dto;
 
-import jakarta.persistence.*;
+import com.daniloewerton.clientproject.entities.Client;
 
 import java.time.Instant;
 
-@Entity
-@Table(name = "tb_client")
-public class Client {
+public class ClientDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String cpf;
@@ -17,26 +13,26 @@ public class Client {
     private Instant birthDate;
     private Integer children;
 
-    public Client() {
+    public ClientDTO() {
 
     }
 
-    public Client(Client entity) {
-        this.id = entity.getId();
-        this.name = entity.getName();
-        this.cpf = entity.getCpf();
-        this.income = entity.getIncome();
-        this.birthDate = entity.getBirthDate();
-        this.children = entity.getChildren();
-    }
-
-    public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
+    public ClientDTO(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
         this.income = income;
         this.birthDate = birthDate;
         this.children = children;
+    }
+
+    public ClientDTO(Client dto) {
+        this.id = dto.getId();
+        this.name = dto.getName();
+        this.cpf = dto.getCpf();
+        this.income = dto.getIncome();
+        this.birthDate = dto.getBirthDate();
+        this.children = dto.getChildren();
     }
 
     public Long getId() {
